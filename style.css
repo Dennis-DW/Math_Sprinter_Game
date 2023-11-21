@@ -1,0 +1,488 @@
+@import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Black+Ops+One&family=Croissant+One&family=EB+Garamond&family=Libre+Baskerville:ital,wght@0,700;1,400&family=Lobster&family=Merriweather:wght@700&family=Montserrat:ital,wght@0,100;0,200;0,800;1,100&family=Rajdhani:wght@300;400&family=Roboto+Mono:ital,wght@0,100;1,100&family=Roboto:ital,wght@1,100&family=Rubik+Iso&family=Skranji&family=Tilt+Prism&family=Tulpen+One&family=Young+Serif&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: rgba(114, 79, 241, 0.555);
+  --select-color: #20201f;
+  --success: rgba(15, 158, 2, 0.405);
+  --danger: rgb(214, 23, 23);
+}
+
+body {
+  margin: 0;
+  font-family: PT Mono, sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  height: 200vh;
+  background: #2df92d00;
+}
+
+.Game-container {
+  margin-top: 10px;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+  width: 500px;
+  height: 590px;
+  background-image: linear-gradient(163deg, #4b10fcad 0%,rgba(0, 225, 105, 0.301) 100%);
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.Game-container2 {
+  border-radius: 20px;
+  width: 500px;
+  height: 590px;
+  background: rgba(55, 78, 44, 0.342);
+  transition: all 0.5s;
+}
+
+.Game-container2:hover {
+  transform: scale(0.98);
+  border-radius: 20px;
+}
+
+.Game-container:hover {
+  box-shadow: 0px 0px 30px 1px rgb(0, 0, 0);
+}
+
+.Header {
+  border-radius: 20px 20px 0 0;
+  background: var(--primary-color);
+  color: white;
+  font-family: Young Serif;
+  font-size: 24px;
+  text-shadow: 1px 2px 2px black;
+  letter-spacing: 2px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Card {
+  margin: 5px auto 10px;
+  height: 100px;
+}
+
+/* Splash Page -------------------- */
+input[type="radio"] {
+  opacity: 0;
+  width: 100%;
+  height: 75px;
+  position: relative;
+  top: -20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.Selection-Container {
+  position: relative;
+  top: 5px;
+}
+
+.Radio-Container {
+  width: 90%;
+  height: 75px;
+  margin: 25px;
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+label {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+}
+
+.selected-label {
+  background: var(--select-color);
+  color: white;
+}
+
+.best-score {
+  position: relative;
+  top: -100px;
+  left: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  max-width: fit-content;
+}
+
+.best-score span {
+  margin: 0;
+}
+
+.best-score span:last-child {
+  font-size: 24px;
+}
+
+.selection-footer {
+  top: 134px;
+}
+
+/* Game Page -------------------------- */
+.height-240 {
+  height: 240px;
+  width: 100%;
+}
+
+.height-500 {
+  height: 500px;
+  width: 100%;
+}
+
+.item-container {
+  height: 552px;
+  overflow-y: scroll;
+  position: relative;
+  -ms-overflow-style: none;
+}
+
+.item-container::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  height: 90px;
+  margin: 0 50px;
+  user-select: none;
+}
+
+.finished > h1 {
+  opacity: 0.5;
+}
+
+.selected-item {
+  background: var(--select-color);
+  position: fixed;
+  top: 380px;
+  z-index: -1;
+  width: 100%;
+  height: 60px;
+}
+
+.item-footer,
+.selection-Footer {
+  border-radius: 0 0 20px 20px;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.item-footer {
+  top: 1px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 8px;
+  height: 60px;
+  width: 70%;
+  background: #3c25c2b4;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.name {
+  line-height: 20px;
+  font-size: 17px;
+  color: #0c0b0b;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+
+.button:hover {
+  background: var(--select-color);
+}
+
+.button:hover .svg-icon {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Wrong {
+  bottom: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: .3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.Wrong:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: .3s;
+  background-color: rgba(245, 255, 237, 0.014);
+  align-items: center;
+}
+
+.Wrong:hover .svgIcon {
+  width: 50px;
+  transition-duration: .3s;
+  transform: translateY(60%);
+}
+
+.Wrong::before {
+  position: absolute;
+  top: -20px;
+  content: "Delete";
+  color: white;
+  transition-duration: .3s;
+  font-size: 2px;
+}
+
+.Wrong:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(30px);
+  transition-duration: .3s;
+}
+
+.right {
+  --green: #1BFD9C;
+  font-size: 15px;
+  padding: 0.7em 2.7em;
+  letter-spacing: 0.06em;
+  position: relative;
+  font-family: inherit;
+  border-radius: 0.6em;
+  bottom: 50%;
+  overflow: hidden;
+  transition: all 0.3s;
+  line-height: 1.4em;
+  border: 2px solid var(--green);
+  background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 156, 0.1) 100%);
+  color: var(--green);
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+}
+
+button:hover {
+  color: #82ffc9;
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+}
+
+button:hover:before {
+  transform: translateX(15em);
+}
+
+.start,
+.play-again {
+  width: 90%;
+  background: var(--primary-color);
+}
+
+/* Countdown Page ---------------------- */
+.countdown {
+  margin-top: 45%;
+  font-size: 100px;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Score Page ------------------------- */
+.score-container {
+  height: 400px;
+  font-family: PT Mono;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-footer {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -30px;
+}
+
+.title {
+  font-size: 45px;
+}
+
+.final-time {
+  font-size: 100px;
+  margin: 0;
+  color: var(--success);
+}
+
+.base-time {
+  margin-top: 100px;
+  margin-bottom: 0;
+}
+
+.penalty-time {
+  color: var(--danger);
+}
+
+/* Media Query: Laptop */
+@media screen and (max-width: 1800px) {
+  .game-container {
+    margin-top: 35px;
+  }
+
+  .selected-item {
+    top: 380px;
+  }
+}
+
+.button1 {
+  right: -35%;
+  width: 140px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 0px 15px;
+  background-color: red;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  position: relative;
+  cursor: pointer;
+  font-weight: 900;
+  transition-duration: .2s;
+}
+
+.game path {
+  color: white;
+}
+
+.button1 .arrow {
+  position: absolute;
+  right: 0;
+  padding: 0px 5px;
+  width: 30px;
+  height: 100%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button1:hover,
+.button1:focus {
+  background-color: black;
+  transition-duration: .2s;
+}
+
+.button1:hover .arrow {
+  animation: slide-right .6s ease-out both;
+}
+/* arrow animation */
+@keyframes slide-right {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.button1:active {
+  transform: translate(1px , 1px);
+  transition-duration: .2s;
+}
+
+/* Media Query: Large Smartphone (Vertical) */
+@media screen and (max-width: 500px) {
+  .game-container {
+    width: 100%;
+    margin-top: 0;
+    border: none;
+  }
+
+  .selected-item {
+    top: 345px;
+  }
+
+  .header {
+    font-size: 1.2rem;
+  }
+
+  .countdown {
+    margin-top: 60%;
+  }
+
+  .selection-container {
+    top: 100px;
+  }
+
+  .radio-container {
+    width: 93%;
+    margin: 15px;
+  }
+
+  label {
+    font-size: 1.7rem;
+  }
+
+  .best-score {
+    font-size: 1rem;
+    left: 245px;
+  }
+
+  .selection-footer {
+    top: 183px;
+  }
+}
+
+/* Media Query: iPhone */
+@media screen and (max-width: 376px) {
+  .best-score {
+    left: 232px;
+  }
+}
